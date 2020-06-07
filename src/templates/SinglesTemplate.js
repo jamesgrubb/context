@@ -23,7 +23,7 @@ const SinglesTemplate = () => {
   console.log("SinglesTemplate -> data", data)
   const singles = data.allSanitySingle.edges.map(({ node }) => node)
 
-  return <SinglesList singles={singles}></SinglesList>
+  return <SinglesList singles={singles} />
 }
 
 export default SinglesTemplate

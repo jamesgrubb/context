@@ -18,6 +18,13 @@ const useMusicPlayer = () => {
       }))
     }
   }
+  function stop() {
+    if (state.isPLaying) {
+      state.audioPlayer.pause()
+      state.audioPlayer.currentTime = 0
+    }
+    return
+  }
   function togglePlay() {
     if (state.isPlaying) {
       state.audioPlayer.pause()
@@ -28,6 +35,7 @@ const useMusicPlayer = () => {
   }
 
   return {
+    stop,
     playTrack,
     togglePlay,
     trackList: state.tracks,
