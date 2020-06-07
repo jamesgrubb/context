@@ -1,10 +1,14 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 const MusicPlayerContext = React.createContext([{}, () => {}])
 
 const MusicPlayerProvider = ({ children }) => {
+  useEffect(() => {
+    setState(state => ({ ...state, audioPlayer: new Audio() }))
+  }, [])
   const [state, setState] = useState({
-    index: null,
+    currentTrackIndex: null,
+    isPlaying: false,
   })
   return (
     <MusicPlayerContext.Provider value={[state, setState]}>
